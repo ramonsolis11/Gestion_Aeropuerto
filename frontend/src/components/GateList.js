@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import backend from '../api/backend';
+import { Link } from 'react-router-dom';
 
 const GateList = () => {
     const [puertas, setPuertas] = useState([]);
@@ -25,7 +26,7 @@ const GateList = () => {
         <ul>
             {puertas.map((puerta) => (
             <li key={puerta.id}>
-                Puerta {puerta.numero} - {puerta.disponible ? 'Disponible' : 'Ocupada'}
+                <Link to={`/puertas/${puerta.id}`}>Puerta {puerta.numero}</Link>
             </li>
             ))}
         </ul>
@@ -34,3 +35,4 @@ const GateList = () => {
 };
 
 export default GateList;
+

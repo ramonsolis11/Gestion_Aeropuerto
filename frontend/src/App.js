@@ -3,7 +3,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import AvionList from './components/AvionList';
-import GateList from './components/GateList';
+import AvionDetail from './components/AvionDetail';
+import GateList from './components/GateList'; // Agregamos el componente GateList
+import GateDetail from './components/GateDetail'; // Agregamos el componente GateDetail
 
 const App = () => {
     return (
@@ -20,8 +22,10 @@ const App = () => {
             </ul>
             </nav>
             <Switch>
-            <Route path="/aviones" component={AvionList} />
-            <Route path="/puertas" component={GateList} />
+            <Route exact path="/aviones" component={AvionList} />
+            <Route path="/aviones/:id" component={AvionDetail} />
+            <Route exact path="/puertas" component={GateList} /> {/* Nueva ruta para la lista de puertas */}
+            <Route path="/puertas/:id" component={GateDetail} /> {/* Nueva ruta para el detalle de la puerta */}
             </Switch>
         </div>
         </Router>
